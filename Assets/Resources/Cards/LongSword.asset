@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeba257629b07294d8e37cdfba234081, type: 3}
   m_Name: LongSword
   m_EditorClassIdentifier: 
-  Name: Long Sword
-  Description: A really long sword
+  Name: Wood Sword
+  Description: Basic sword made of wood
   Image: {fileID: 21300000, guid: b024f1b73c8660d4ab2c741f71485476, type: 3}
   Action: {fileID: 11400000, guid: b28becfcf892bf1468640e96e628ffd7, type: 2}

@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     }
     #endregion
     public List<Actor> Actors;
+    public List<Actor> Enemies;
     public TurnController TurnController;
     public GameObject CardPrefab;
     public Transform CardParent;
@@ -28,13 +29,23 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         StartGame();
+        GetEnemies();
     }
 
     public void StartGame()
     {
         SpawnCards();
     }
+    public void GetEnemies()
+    {
+        Enemies = new List<Actor>();
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var obj in objs)
+        {
+            Enemies.Add(obj.GetComponent<Actor>());
+        }
 
+    }
     public void SpawnCards()
     {
         foreach (var card in player.Cards)
@@ -49,6 +60,11 @@ public class GameController : MonoBehaviour
 
     public void CardDoAction(Card card)
     {
-        card.Action.DoAction(GameController.Instance, TurnController.CurrentActorTurn, Player.Instance);
+        if (card.Action == null)
+        {
+            Debug.LogWarning("This card have no Action");
+            return;
+        }
+        Player.Instance.Act(card);
     }
 }

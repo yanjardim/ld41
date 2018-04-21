@@ -130,6 +130,7 @@ MonoBehaviour:
   TxtName: {fileID: 114353855239242110}
   TxtDescription: {fileID: 114623510592125806}
   ImgIcon: {fileID: 114537778100113620}
+  Card: {fileID: 0}
 --- !u!114 &114230460944925754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}

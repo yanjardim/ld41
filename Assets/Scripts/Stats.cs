@@ -7,6 +7,7 @@ public class Stats
 {
     public int Health;
     public int MaxHealth;
+    public int Level;
     public int Strength;
     public int Defense;
     public int Agility;
@@ -44,6 +45,11 @@ public class Stats
     public void AddAgility(int amount)
     {
         Agility += amount;
+    }
+
+    public void LevelUp()
+    {
+        Level++;
     }
 
 }

@@ -16,10 +16,10 @@ card rpg rogue like {
 
     Cartas {
         Ação {
-            Upar de level - Aumenta seus status
+            Upar de level - Aumenta todos seus status, só pode ser usada 1x por partida
             Atacar com arma primaria
             Atacar com arma secundaria
-            Defender - toma menos dano
+            Defender - não toma dano essa rodada
         }
         Equipaveis {
             Espada longa
