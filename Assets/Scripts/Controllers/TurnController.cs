@@ -19,20 +19,16 @@ public class TurnController : MonoBehaviour
     {
         this.Actors = actors;
         SetPlayerTurn();
+        CallOnTurnBegin();
     }
-
 
     public void ChangeTurn()
     {
-        if (OnTurnEnd != null)
-            OnTurnEnd(CurrentActorTurn);
-
+        CallOnTurnEnd();
         UnsetPlayerTurn();
         ReorderCurrentActor();
         SetPlayerTurn();
-
-        if (OnTurnBegin != null)
-            OnTurnBegin(CurrentActorTurn);
+        CallOnTurnBegin();
     }
     public void ReorderCurrentActor()
     {
@@ -50,5 +46,17 @@ public class TurnController : MonoBehaviour
     public void UnsetPlayerTurn()
     {
         CurrentActorTurn.IsMyTurn = false;
+    }
+
+    private void CallOnTurnBegin()
+    {
+        if (OnTurnBegin != null)
+            OnTurnBegin(CurrentActorTurn);
+    }
+
+    private void CallOnTurnEnd()
+    {
+        if (OnTurnEnd != null)
+            OnTurnEnd(CurrentActorTurn);
     }
 }

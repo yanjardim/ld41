@@ -10,5 +10,4 @@ public abstract class Action : ScriptableObject
     {
         controller.TurnController.ChangeTurn();
     }
-
 }

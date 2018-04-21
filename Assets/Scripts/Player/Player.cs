@@ -4,23 +4,10 @@ using UnityEngine;
 
 public class Player : Actor
 {
-
     public Actor target;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void Attack(Card card)
+    public void Act(Card card)
     {
         card.Action.DoAction(GameController.Instance, target);
     }
+
 }
