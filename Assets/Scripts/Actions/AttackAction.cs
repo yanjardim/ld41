@@ -10,5 +10,6 @@ public class AttackAction : Action
     {
         target.Stats.Health -= 1;
         Debug.Log("Atacou");
+        DidAction(controller);
     }
 }

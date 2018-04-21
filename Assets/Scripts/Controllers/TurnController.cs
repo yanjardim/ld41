@@ -11,12 +11,16 @@ public class TurnController : MonoBehaviour
     public static event TurnHandler OnTurnEnd;
     public static event TurnHandler OnTurnBegin;
 
-
+    private void Start()
+    {
+        Init(new Queue<Actor>(GameController.Instance.Actors));
+    }
     public void Init(Queue<Actor> actors)
     {
         this.Actors = actors;
         SetPlayerTurn();
     }
+
 
     public void ChangeTurn()
     {
