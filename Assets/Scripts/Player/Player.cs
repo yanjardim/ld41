@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Actor
 {
+    public int Coins;
     public Actor target;
     public void Act(Card card)
     {
