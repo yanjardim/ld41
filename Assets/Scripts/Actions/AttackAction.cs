@@ -8,6 +8,7 @@ public class AttackAction : Action
 
     public override void DoAction(GameController controller, Actor target)
     {
+        target.Stats.Health -= 1;
         Debug.Log("Atacou");
     }
 }
