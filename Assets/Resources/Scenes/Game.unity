@@ -233,13 +233,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsMyTurn: 0
   Stats:
-    Strength: 1
     Health: 10
+    MaxHealth: 0
+    Strength: 2
     Defense: 1
     Agility: 1
   Cards:
   - {fileID: 11400000, guid: 544abb84e5e9b9a4d8edcf771ce5058f, type: 2}
   - {fileID: 11400000, guid: 6e0614df35ce633488b1f8bee503741f, type: 2}
+  Coins: 0
   target: {fileID: 484859363}
 --- !u!4 &197673350
 Transform:
@@ -364,8 +366,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsMyTurn: 0
   Stats:
-    Strength: 1
     Health: 5
+    MaxHealth: 0
+    Strength: 1
     Defense: 1
     Agility: 1
   Cards:

@@ -9,11 +9,13 @@ public class CardPrefab : MonoBehaviour
     public Text TxtName;
     public Text TxtDescription;
     public Image ImgIcon;
+    public Card Card;
     // Use this for initialization
-    public void SetCard(string name, string description, Sprite img)
+    public void SetCard(string name, string description, Sprite img, Card card)
     {
         TxtName.text = name;
         TxtDescription.text = description;
         ImgIcon.sprite = img;
+        Card = card;
     }
 }

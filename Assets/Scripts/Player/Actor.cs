@@ -19,8 +19,8 @@ public class Actor : MonoBehaviour
         IsMyTurn = actor.IsMyTurn;
     }
 
-    public virtual void Act(Card card, Actor target)
+    public virtual void Act(Card card, Actor currentActor, Actor target)
     {
-        card.Action.DoAction(GameController.Instance, target);
+        card.Action.DoAction(GameController.Instance, this, target);
     }
 }

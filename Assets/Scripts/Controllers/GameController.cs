@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -40,8 +41,14 @@ public class GameController : MonoBehaviour
         {
             GameObject newGO = Instantiate(CardPrefab, CardParent, false);
             CardPrefab cardPrefab = newGO.GetComponent<CardPrefab>();
-            cardPrefab.SetCard(card.Name, card.Description, card.Image);
+            Button cardButton = newGO.GetComponent<Button>();
+            cardPrefab.SetCard(card.Name, card.Description, card.Image, card);
+            cardButton.onClick.AddListener(delegate { CardDoAction(card); });
         }
     }
 
+    public void CardDoAction(Card card)
+    {
+        card.Action.DoAction(GameController.Instance, TurnController.CurrentActorTurn, Player.Instance);
+    }
 }
