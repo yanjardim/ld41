@@ -1,0 +1,32 @@
+Combine 2 Incompatible Genres
+
+card rpg rogue like {
+
+    Monta seu deck com 3 cartas de ação, 2 equipaveis
+    Jogo por turno
+    Sempre o jogador começa
+    Sempre que jogar uma carta ela fica 1 turno sem poder ser jogada, a n ser que a carta diga o contrario
+    
+    Status {
+        Health
+        Strength
+        Defense
+        Agility
+    }
+
+    Cartas {
+        Ação {
+            Upar de level - Aumenta seus status
+            Atacar com arma primaria
+            Atacar com arma secundaria
+            Defender - toma menos dano
+        }
+        Equipaveis {
+            Espada longa
+            Escudo - da bonus na defesa e chance de esquivar golpe
+            Arco e flecha - precisa ter algo de diferente da espada
+        }
+        
+    }
+
+}
