@@ -18,6 +18,21 @@ public class Stats
             return Health <= 0;
         }
     }
+
+    public Stats()
+    {
+
+    }
+    public Stats(int health, int maxHealth, int level, int strength, int defense, int agility)
+    {
+        this.Health = health;
+        this.MaxHealth = maxHealth;
+        this.Level = level;
+        this.Strength = strength;
+        this.Defense = defense;
+        this.Agility = agility;
+    }
+
     //TODO: Add events when is dead
     public void Init()
     {
@@ -65,4 +80,27 @@ public class Stats
         return (float)Health / (float)MaxHealth;
     }
 
+
+    public static Stats operator +(Stats stat1, Stats stat2)
+    {
+        return new Stats(
+            stat1.Health + stat2.Health,
+            stat1.MaxHealth + stat2.MaxHealth,
+            stat1.Level + stat2.Level,
+            stat1.Strength + stat2.Strength,
+            stat1.Defense + stat2.Defense,
+            stat1.Agility + stat2.Agility
+            );
+    }
+    public static Stats operator -(Stats stat1, Stats stat2)
+    {
+        return new Stats(
+            stat1.Health - stat2.Health,
+            stat1.MaxHealth - stat2.MaxHealth,
+            stat1.Level - stat2.Level,
+            stat1.Strength - stat2.Strength,
+            stat1.Defense - stat2.Defense,
+            stat1.Agility - stat2.Agility
+            );
+    }
 }

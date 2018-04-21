@@ -20,15 +20,16 @@ card rpg rogue like {
         Ações {
             Upar de level - Aumenta todos seus status, só pode ser usada 1x por partida
             Atacar com arma primaria
-            Atacar com arma secundaria
             Defender - não toma dano essa rodada
             Poção de cura pequena - Cura 4 pontos de vida
             Poção de cura Grande - Cura 8 pontos de vida
         }
         Equipaveis {
             Espada longa
-            Escudo - da bonus na defesa e chance de esquivar golpe
             Arco e flecha - precisa ter algo de diferente da espada
+            Escudo - da bonus na defesa e chance de esquivar golpe
+            Armadura leve - bonus defesa
+            Armadura pesada - bonus defesa
         }
         
     }
