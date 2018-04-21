@@ -25,6 +25,7 @@ public class Player : Actor
     public static event TargetHandler OnTargetChange;
     private void Start()
     {
+        base.Start();
         if (GameController.Instance.Enemies.Count > 0)
             ChangeTarget(GameController.Instance.Enemies[0]);
     }

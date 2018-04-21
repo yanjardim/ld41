@@ -7,21 +7,41 @@ public class MenuController : MonoBehaviour
 {
 
     public Text TxtTurn;
+    public Text TxtStrenght;
+    public Text TxtDefense;
+    public Image ImgHealthBar;
+    public float LerpSpeed = 2;
+    private Stats _playerStats;
 
     // Use this for initialization
     void Start()
     {
         TurnController.OnTurnBegin += ChangeTextWhenTurnBegin;
+        _playerStats = Player.Instance.Stats;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        HandleBar();
+        HandleStatsText();
     }
 
     void ChangeTextWhenTurnBegin(Actor actor)
     {
         TxtTurn.text = actor.name;
+    }
+
+    void HandleBar()
+    {
+        ImgHealthBar.fillAmount = Mathf.Lerp(ImgHealthBar.fillAmount,
+                                            Player.Instance.Stats.GetHealthAsPercent(),
+                                            Time.deltaTime * LerpSpeed);
+    }
+
+    void HandleStatsText()
+    {
+        TxtDefense.text = _playerStats.Defense.ToString();
+        TxtStrenght.text = _playerStats.Strength.ToString();
     }
 }

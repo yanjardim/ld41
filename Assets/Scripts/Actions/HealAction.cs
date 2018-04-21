@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Attack Action", menuName = "Actions/Attack Action")]
-public class AttackAction : Action
+[CreateAssetMenu(fileName = "Heal Action", menuName = "Actions/Heal Action")]
+public class HealAction : Action
 {
     public override void DoAction(GameController controller, Actor currentActor, Actor target)
     {
-
-        target.Stats.TakeDamage(currentActor, target);
+        currentActor.Stats.Heal(4);
         DidAction(controller);
     }
-
 }

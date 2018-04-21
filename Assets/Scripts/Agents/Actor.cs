@@ -18,6 +18,10 @@ public class Actor : MonoBehaviour
         Cards = actor.Cards;
         IsMyTurn = actor.IsMyTurn;
     }
+    public virtual void Start()
+    {
+        Stats.Init();
+    }
 
     public virtual void Act(Card card, Actor currentActor, Actor target)
     {

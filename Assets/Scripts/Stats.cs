@@ -18,7 +18,7 @@ public class Stats
             return Health <= 0;
         }
     }
-
+    //TODO: Add events when is dead
     public void Init()
     {
         Health = MaxHealth;
@@ -29,9 +29,13 @@ public class Stats
         Health += amount;
         Health = Health >= MaxHealth ? MaxHealth : Health;
     }
-    public void TakeDamage(int amount)
+    public void TakeDamage(Actor currentActor, Actor target)
     {
-        Health -= amount;
+        Stats currentActorStats = currentActor.Stats;
+        Stats targetStats = target.Stats;
+        int damage = currentActorStats.Strength * currentActorStats.Strength / (currentActorStats.Strength + targetStats.Defense);
+        Debug.Log(damage);
+        Health -= damage;
         Health = Health <= 0 ? 0 : Health;
     }
     public void AddStrength(int amount)
@@ -50,6 +54,15 @@ public class Stats
     public void LevelUp()
     {
         Level++;
+        AddStrength(1);
+        AddDefense(1);
+        AddAgility(1);
+    }
+
+    public float GetHealthAsPercent()
+    {
+
+        return (float)Health / (float)MaxHealth;
     }
 
 }

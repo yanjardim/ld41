@@ -8,8 +8,9 @@ public class Enemy : Actor
     public Vector2 CooldownRange;
     private bool _canPlay;
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
+        base.Start();
         _canPlay = false;
         TurnController.OnTurnBegin += OnTurnBegin;
     }
@@ -23,8 +24,16 @@ public class Enemy : Actor
     }
     void Play()
     {
-        Debug.Log("Enemy Attack!");
-        GameController.Instance.TurnController.ChangeTurn();
+        UseCard(PickRandomCard());
+        //GameController.Instance.TurnController.ChangeTurn();
+    }
+    void UseCard(Card card)
+    {
+        Act(card, this, Player.Instance);
+    }
+    Card PickRandomCard()
+    {
+        return Cards[Random.Range(0, Cards.Count - 1)];
     }
 
     void StartPlayCoroutine()

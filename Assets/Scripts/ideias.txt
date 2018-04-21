@@ -1,7 +1,9 @@
 Combine 2 Incompatible Genres
 
 card rpg rogue like {
-
+    Palheta: https://coolors.co/201a23-fb3640-7f5a83-a188a6-e2e2e2
+    Potions: https://www.google.com.br/search?biw=1024&bih=588&tbm=isch&sa=1&ei=C43bWr69BsSnwgSxyad4&q=health+potion+2d&oq=health+potion+2d&gs_l=psy-ab.3...1099672.1100064.0.1100237.3.3.0.0.0.0.112.220.0j2.2.0....0...1c.1.64.psy-ab..1.1.112...0i8i30k1.0.FADomuxSiWQ#imgrc=_gaCqz7zlg3VUM:
+    
     Monta seu deck com 3 cartas de ação, 2 equipaveis
     Jogo por turno
     Sempre o jogador começa
@@ -15,11 +17,13 @@ card rpg rogue like {
     }
 
     Cartas {
-        Ação {
+        Ações {
             Upar de level - Aumenta todos seus status, só pode ser usada 1x por partida
             Atacar com arma primaria
             Atacar com arma secundaria
             Defender - não toma dano essa rodada
+            Poção de cura pequena - Cura 4 pontos de vida
+            Poção de cura Grande - Cura 8 pontos de vida
         }
         Equipaveis {
             Espada longa
