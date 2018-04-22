@@ -20,7 +20,7 @@ public class Actor : MonoBehaviour
     }
     public virtual void Start()
     {
-        Stats.Init();
+        Stats.Init(this);
     }
 
     public virtual void Act(Card card, Actor currentActor, Actor target)

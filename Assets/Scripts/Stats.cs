@@ -11,6 +11,10 @@ public class Stats
     public int Strength;
     public int Defense;
     public int Agility;
+    public bool _isInvunerable = false;
+    private int _invunerabilityTurns = 0;
+    private int _currentInvunerabilityTurn = 0;
+    private Actor _thisActor;
     public bool IsDead
     {
         get
@@ -34,11 +38,26 @@ public class Stats
     }
 
     //TODO: Add events when is dead
-    public void Init()
+    public void Init(Actor thisActor)
     {
         Health = MaxHealth;
+        _isInvunerable = false;
+        _thisActor = thisActor;
+        TurnController.OnTurnBegin += OnTurnBegin;
     }
-
+    void OnTurnBegin(Actor currentActor)
+    {
+        if (_isInvunerable && _thisActor.IsMyTurn)
+        {
+            Debug.Log("Invuneravel");
+            _currentInvunerabilityTurn++;
+            if (_currentInvunerabilityTurn >= _invunerabilityTurns)
+            {
+                Debug.Log("Invuneravel");
+                _isInvunerable = false;
+            }
+        }
+    }
     public void Heal(int amount)
     {
         Health += amount;
@@ -46,6 +65,8 @@ public class Stats
     }
     public void TakeDamage(Actor currentActor, Actor target)
     {
+        if (_isInvunerable) return;
+
         Stats currentActorStats = currentActor.Stats;
         Stats targetStats = target.Stats;
         int damage = currentActorStats.Strength * currentActorStats.Strength / (currentActorStats.Strength + targetStats.Defense);
@@ -79,7 +100,12 @@ public class Stats
 
         return (float)Health / (float)MaxHealth;
     }
-
+    public void Invunerable(int turns)
+    {
+        _isInvunerable = true;
+        _invunerabilityTurns = turns;
+        _currentInvunerabilityTurn = 0;
+    }
 
     public static Stats operator +(Stats stat1, Stats stat2)
     {

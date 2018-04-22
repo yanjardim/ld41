@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     public TurnController TurnController;
     public GameObject CardPrefab;
     public Transform CardParent;
-    public Player player;
+
 
     private void Start()
     {
@@ -48,23 +48,20 @@ public class GameController : MonoBehaviour
     }
     public void SpawnCards()
     {
-        foreach (var card in player.Cards)
+        foreach (var card in Player.Instance.Cards)
         {
+            Card newCardInstance = Object.Instantiate(card) as Card;
+            newCardInstance.Init(Player.Instance);
             GameObject newGO = Instantiate(CardPrefab, CardParent, false);
             CardPrefab cardPrefab = newGO.GetComponent<CardPrefab>();
             Button cardButton = newGO.GetComponent<Button>();
-            cardPrefab.SetCard(card.Name, card.Description, card.Image, card);
-            cardButton.onClick.AddListener(delegate { CardDoAction(card); });
+            cardPrefab.SetCard(card.Name, card.Description, card.Image, newCardInstance);
+            cardButton.onClick.AddListener(delegate { CardDoAction(newCardInstance); });
         }
     }
 
     public void CardDoAction(Card card)
     {
-        if (card.Action == null)
-        {
-            Debug.LogWarning("This card have no Action");
-            return;
-        }
-        Player.Instance.Act(card);
+        card.Use(Player.Instance.Target);
     }
 }
