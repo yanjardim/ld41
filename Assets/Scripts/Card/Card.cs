@@ -19,6 +19,7 @@ public class Card : ScriptableObject
         TurnController.OnTurnBegin += OnTurnBegin;
         IsEnable = true;
         _owner = owner;
+
     }
 
     void OnTurnBegin(Actor currentActor)

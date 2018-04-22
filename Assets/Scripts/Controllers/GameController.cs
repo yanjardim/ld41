@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
     public TurnController TurnController;
     public GameObject CardPrefab;
     public Transform CardParent;
+    public Sprite WeaponSprite;
+    public GameObject WeaponGO;
 
 
     private void Start()
@@ -55,8 +57,8 @@ public class GameController : MonoBehaviour
             newCardInstance.Init(Player.Instance);
             GameObject newGO = Instantiate(CardPrefab, CardParent, false);
             CardPrefab cardPrefab = newGO.GetComponent<CardPrefab>();
-            Button cardButton = newGO.GetComponent<Button>();
             cardPrefab.SetCard(card.Name, card.Description, card.Image, newCardInstance);
+            Button cardButton = newGO.GetComponent<Button>();
             cardButton.onClick.AddListener(delegate { CardDoAction(newCardInstance); });
         }
     }
@@ -64,8 +66,10 @@ public class GameController : MonoBehaviour
     public void SpawnWeapons()
     {
         Weapon weapon = ScriptableObject.CreateInstance(typeof(Weapon)) as Weapon;
-        weapon.Init(new Stats(0, 0, 0, 1, 0, 0));
+        weapon.Init("Wood Sword", "A sword for training", WeaponSprite, new Stats(0, 0, 0, 1, 0, 0));
         Player.Instance.Inventory.EquipWeapon(weapon);
+        var WeaponPrefab = WeaponGO.GetComponent<CardPrefab>();
+        WeaponPrefab.SetCard(weapon.Name, weapon.Description, weapon.Image, weapon);
 
     }
 
