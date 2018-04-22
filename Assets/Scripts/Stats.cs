@@ -107,26 +107,22 @@ public class Stats
         _currentInvunerabilityTurn = 0;
     }
 
-    public static Stats operator +(Stats stat1, Stats stat2)
+    public void Add(Stats stat)
     {
-        return new Stats(
-            stat1.Health + stat2.Health,
-            stat1.MaxHealth + stat2.MaxHealth,
-            stat1.Level + stat2.Level,
-            stat1.Strength + stat2.Strength,
-            stat1.Defense + stat2.Defense,
-            stat1.Agility + stat2.Agility
-            );
+        Health += stat.Health;
+        MaxHealth += stat.MaxHealth;
+        Level += stat.Level;
+        Strength += stat.Strength;
+        Defense += stat.Defense;
+        Agility += stat.Agility;
     }
-    public static Stats operator -(Stats stat1, Stats stat2)
+    public void Sub(Stats stat)
     {
-        return new Stats(
-            stat1.Health - stat2.Health,
-            stat1.MaxHealth - stat2.MaxHealth,
-            stat1.Level - stat2.Level,
-            stat1.Strength - stat2.Strength,
-            stat1.Defense - stat2.Defense,
-            stat1.Agility - stat2.Agility
-            );
+        Health -= stat.Health;
+        MaxHealth -= stat.MaxHealth;
+        Level -= stat.Level;
+        Strength -= stat.Strength;
+        Defense -= stat.Defense;
+        Agility -= stat.Agility;
     }
 }

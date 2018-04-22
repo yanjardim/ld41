@@ -5,5 +5,9 @@ using UnityEngine;
 public class Weapon : Card
 {
     public Stats Stats;
+    public void Init(Stats stats)
+    {
+        Stats = stats;
+    }
 
 }

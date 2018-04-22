@@ -28,13 +28,14 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        StartGame();
+
         GetEnemies();
     }
 
     public void StartGame()
     {
         SpawnCards();
+        SpawnWeapons();
     }
     public void GetEnemies()
     {
@@ -58,6 +59,14 @@ public class GameController : MonoBehaviour
             cardPrefab.SetCard(card.Name, card.Description, card.Image, newCardInstance);
             cardButton.onClick.AddListener(delegate { CardDoAction(newCardInstance); });
         }
+    }
+
+    public void SpawnWeapons()
+    {
+        Weapon weapon = ScriptableObject.CreateInstance(typeof(Weapon)) as Weapon;
+        weapon.Init(new Stats(0, 0, 0, 1, 0, 0));
+        Player.Instance.Inventory.EquipWeapon(weapon);
+
     }
 
     public void CardDoAction(Card card)

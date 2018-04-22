@@ -5,18 +5,21 @@ using UnityEngine;
 [System.Serializable]
 public class Inventory
 {
-    public List<Card> Weapons;
+    public List<Weapon> Weapons;
     public delegate void InventoryHandler(Weapon weapon);
     public event InventoryHandler OnEquipWeapon;
     public event InventoryHandler OnUnequipWeapon;
 
     public void EquipWeapon(Weapon weapon)
     {
+        Debug.Log(OnEquipWeapon);
         if (OnEquipWeapon != null)
         {
+            Debug.Log("On Equip");
             OnEquipWeapon(weapon);
         }
         Weapons.Add(weapon);
+        Debug.Log("Equip");
     }
     public void UnequipWeapon(Weapon weapon)
     {
@@ -26,5 +29,4 @@ public class Inventory
         }
         Weapons.Remove(weapon);
     }
-
 }

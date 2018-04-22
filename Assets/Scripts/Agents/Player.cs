@@ -21,7 +21,7 @@ public class Player : Actor
 
     public int Coins;
     public Actor Target;
-    public Inventory Inventory;
+
 
     public delegate void TargetHandler(Actor target);
     public static event TargetHandler OnTargetChange;
@@ -31,6 +31,8 @@ public class Player : Actor
         base.Start();
         if (GameController.Instance.Enemies.Count > 0)
             ChangeTarget(GameController.Instance.Enemies[0]);
+
+        GameController.Instance.StartGame();
 
     }
     public void ChangeTarget(Actor target)
