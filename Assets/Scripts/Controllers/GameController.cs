@@ -65,10 +65,18 @@ public class GameController : MonoBehaviour
 
     public void SpawnWeapons()
     {
-        Weapon weapon = ScriptableObject.CreateInstance(typeof(Weapon)) as Weapon;
-        weapon.Init("Wood Sword", "Raise your Strenght by 1", WeaponSprite, new Stats(0, 0, 0, 1, 0, 0));
-        Player.Instance.Inventory.EquipWeapon(weapon);
+        //Weapon weapon = ScriptableObject.CreateInstance(typeof(Weapon)) as Weapon;
+        //weapon.Init("Wood Sword", "Raise your Strenght by 1", WeaponSprite, new Stats(0, 0, 0, 1, 0, 0));
+        Weapon weapon = null;
+        if (Player.Instance.Inventory.Weapons.Count > 0)
+            weapon = Player.Instance.Inventory.Weapons[0];
+        if (weapon == null)
+        {
+            WeaponGO.SetActive(false);
+            return;
+        }
         var WeaponPrefab = WeaponGO.GetComponent<CardPrefab>();
+        Player.Instance.Inventory.EquipWeapon(weapon);
         WeaponPrefab.SetCard(weapon.Name, weapon.Description, weapon.Image, weapon);
 
     }

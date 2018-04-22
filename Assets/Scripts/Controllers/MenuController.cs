@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
 
-    public Text TxtTurn;
+
     public Text TxtStrenght;
     public Text TxtDefense;
     public Image ImgHealthBar;
@@ -16,7 +16,7 @@ public class MenuController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        TurnController.OnTurnBegin += ChangeTextWhenTurnBegin;
+
         _playerStats = Player.Instance.Stats;
     }
 
@@ -27,10 +27,6 @@ public class MenuController : MonoBehaviour
         HandleStatsText();
     }
 
-    void ChangeTextWhenTurnBegin(Actor actor)
-    {
-        TxtTurn.text = actor.name;
-    }
 
     void HandleBar()
     {
