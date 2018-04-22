@@ -8,6 +8,7 @@ public class Actor : MonoBehaviour
     public Stats Stats;
     public List<Card> Cards;
     public Inventory Inventory;
+    public int Coins;
     public Actor()
     {
         IsMyTurn = false;

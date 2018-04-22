@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurnController : MonoBehaviour
 {
 
-    public Queue<Actor> Actors;
+    public List<Actor> Actors;
     public Actor CurrentActorTurn;
     public delegate void TurnHandler(Actor CurrentActor);
     public static event TurnHandler OnTurnEnd;
@@ -13,9 +13,13 @@ public class TurnController : MonoBehaviour
 
     private void Start()
     {
-        Init(new Queue<Actor>(GameController.Instance.Actors));
+        Init(GameController.Instance.Actors);
+        foreach (var obj in Actors)
+        {
+            obj.Stats.WhenDie += WhenActorDies;
+        }
     }
-    public void Init(Queue<Actor> actors)
+    public void Init(List<Actor> actors)
     {
         this.Actors = actors;
         SetPlayerTurn();
@@ -34,13 +38,27 @@ public class TurnController : MonoBehaviour
     {
 
         Actor currentActor = CurrentActorTurn;
-        Actors.Dequeue();
-        Actors.Enqueue(currentActor);
+        Actors.RemoveAt(0);
+        Actors.Add(currentActor);
+    }
+
+    private void WhenActorDies(Actor actor)
+    {
+        if (actor == null) return;
+        if (actor.tag == "Player") return;
+
+        Actors.Remove(actor);
+        if (CurrentActorTurn == null)
+        {
+            SetPlayerTurn();
+        }
+        Destroy(actor.gameObject);
+        Player.Instance.SetTarget();
     }
 
     public void SetPlayerTurn()
     {
-        CurrentActorTurn = Actors.Peek();
+        CurrentActorTurn = Actors[0];
         CurrentActorTurn.IsMyTurn = true;
     }
     public void UnsetPlayerTurn()
@@ -50,6 +68,7 @@ public class TurnController : MonoBehaviour
 
     private void CallOnTurnBegin()
     {
+
         if (OnTurnBegin != null)
             OnTurnBegin(CurrentActorTurn);
     }

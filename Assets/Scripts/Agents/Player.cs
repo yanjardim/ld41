@@ -19,7 +19,6 @@ public class Player : Actor
     }
     #endregion
 
-    public int Coins;
     public Actor Target;
 
 
@@ -29,10 +28,9 @@ public class Player : Actor
     private void Start()
     {
         base.Start();
-        if (GameController.Instance.Enemies.Count > 0)
-            ChangeTarget(GameController.Instance.Enemies[0]);
 
         GameController.Instance.StartGame();
+        SetTarget();
 
     }
     public void ChangeTarget(Actor target)
@@ -52,6 +50,12 @@ public class Player : Actor
         }
 
         card.Action.DoAction(GameController.Instance, this, Target);
+    }
+
+    public void SetTarget()
+    {
+        if (GameController.Instance.TurnController.Actors.Count > 1)
+            ChangeTarget(GameController.Instance.TurnController.Actors[1]);
     }
 
 }

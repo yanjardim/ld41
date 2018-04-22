@@ -15,6 +15,8 @@ public class Stats
     private int _invunerabilityTurns = 0;
     private int _currentInvunerabilityTurn = 0;
     private Actor _thisActor;
+    public delegate void StatsHandler(Actor actor);
+    public event StatsHandler WhenDie;
     public bool IsDead
     {
         get
@@ -44,6 +46,7 @@ public class Stats
         _isInvunerable = false;
         _thisActor = thisActor;
         TurnController.OnTurnBegin += OnTurnBegin;
+        TurnController.OnTurnEnd += OnTurnEnd;
     }
     void OnTurnBegin(Actor currentActor)
     {
@@ -56,6 +59,14 @@ public class Stats
                 Debug.Log("Invuneravel");
                 _isInvunerable = false;
             }
+        }
+    }
+    void OnTurnEnd(Actor currentActor)
+    {
+        if (IsDead)
+        {
+            if (WhenDie != null)
+                WhenDie(_thisActor);
         }
     }
     public void Heal(int amount)

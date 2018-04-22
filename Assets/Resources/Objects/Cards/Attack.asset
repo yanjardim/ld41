@@ -16,4 +16,4 @@ MonoBehaviour:
   Image: {fileID: 21300000, guid: b024f1b73c8660d4ab2c741f71485476, type: 3}
   Action: {fileID: 11400000, guid: b28becfcf892bf1468640e96e628ffd7, type: 2}
   IsEnable: 1
-  TurnsUnabledAfterUse: 1
+  TurnsUnabledAfterUse: 0

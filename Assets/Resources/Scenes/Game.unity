@@ -719,6 +719,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 544abb84e5e9b9a4d8edcf771ce5058f, type: 2}
   Inventory:
     Weapons: []
+  Coins: 0
   CooldownRange: {x: 1, y: 2}
 --- !u!224 &484859364
 RectTransform:
@@ -1602,6 +1603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4481e4187ac36cf4db514c5d21224da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Actors: []
   CurrentActorTurn: {fileID: 0}
 --- !u!114 &1391398030
 MonoBehaviour:
@@ -2647,4 +2649,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 544abb84e5e9b9a4d8edcf771ce5058f, type: 2}
   Inventory:
     Weapons: []
+  Coins: 0
   CooldownRange: {x: 1, y: 2}

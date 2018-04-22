@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Wood Sword
   m_EditorClassIdentifier: 
   Name: Wood Sword
-  Description: A sword for training
+  Description: Raise your Strength by 1
   Image: {fileID: 21300000, guid: b024f1b73c8660d4ab2c741f71485476, type: 3}
   Action: {fileID: 0}
   IsEnable: 1

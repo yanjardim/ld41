@@ -13,14 +13,27 @@ public class Enemy : Actor
         base.Start();
         _canPlay = false;
         TurnController.OnTurnBegin += OnTurnBegin;
+        Stats.WhenDie += WhenDie;
     }
 
     // Update is called once per frame
     void OnTurnBegin(Actor target)
     {
+        if (this == null) return;
         if (!IsMyTurn) return;
 
         StartPlayCoroutine();
+    }
+
+    void WhenDie(Actor actor)
+    {
+        GiveMoneyToPlayer();
+        //Destroy(this.gameObject);
+    }
+
+    void GiveMoneyToPlayer()
+    {
+        Player.Instance.Coins += Coins;
     }
     void Play()
     {
