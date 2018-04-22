@@ -28,7 +28,8 @@ public class Player : Actor
     private void Start()
     {
         base.Start();
-
+        Cards = CardManager.Instance.Cards;
+        Inventory.Weapons = CardManager.Instance.Weapons;
         GameController.Instance.StartGame();
         SetTarget();
 

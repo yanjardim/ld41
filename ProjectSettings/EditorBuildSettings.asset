@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Resources/Scenes/CardSelection.unity
+    guid: 54fa190d5955e9241a8baca79e0ad7b3
+  - enabled: 1
+    path: Assets/Resources/Scenes/Game.unity
+    guid: feb43deb8e929f14f819a66dacbd4461
