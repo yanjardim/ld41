@@ -78,4 +78,16 @@ public class TurnController : MonoBehaviour
         if (OnTurnEnd != null)
             OnTurnEnd(CurrentActorTurn);
     }
+
+    public void ChangeTurnWhenIsPlayerTurn()
+    {
+        if (Player.Instance.IsMyTurn)
+        {
+            ChangeTurn();
+        }
+        else
+        {
+            Debug.LogWarning("Isn't your turn");
+        }
+    }
 }

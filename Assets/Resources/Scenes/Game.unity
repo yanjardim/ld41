@@ -2244,7 +2244,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1391398029}
-        m_MethodName: ChangeTurn
+        m_MethodName: ChangeTurnWhenIsPlayerTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
