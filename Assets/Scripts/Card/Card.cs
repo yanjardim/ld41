@@ -25,11 +25,11 @@ public class Card : ScriptableObject
     {
         if (!IsEnable && _owner.IsMyTurn)
         {
-            _currentUnabledTurn++;
             if (_currentUnabledTurn >= TurnsUnabledAfterUse)
             {
                 IsEnable = true;
             }
+            _currentUnabledTurn++;
         }
     }
 

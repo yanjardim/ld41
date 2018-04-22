@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3448d7169d5cc6346942c9bb06c12173, type: 3}
   m_Name: Invunerable Action
   m_EditorClassIdentifier: 
-  Turns: 0
+  Turns: 1

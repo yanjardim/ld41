@@ -8,6 +8,7 @@ public class CardPrefab : MonoBehaviour
 
     public Text TxtName;
     public Text TxtDescription;
+    public Text TxtTurns;
     public Image ImgIcon;
     public Card Card;
     // Use this for initialization
@@ -17,5 +18,6 @@ public class CardPrefab : MonoBehaviour
         TxtDescription.text = description;
         ImgIcon.sprite = img;
         Card = card;
+        TxtTurns.text = card.TurnsUnabledAfterUse.ToString();
     }
 }

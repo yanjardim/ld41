@@ -15,3 +15,5 @@ MonoBehaviour:
   Description: Raise your level by 1
   Image: {fileID: 21300000, guid: 430f1bf229d01a94abb0118065801411, type: 3}
   Action: {fileID: 11400000, guid: 41e04809bc2e04e4f8501bf5beae2655, type: 2}
+  IsEnable: 0
+  TurnsUnabledAfterUse: 99
